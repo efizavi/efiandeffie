@@ -26,7 +26,7 @@ export class AppComponent {
       names: 'אפי ואפרת',
       title: 'מתחתנים',
       date: 'יום חמישי, 06 ביולי 2023',
-      location: 'גן האירועים "YARA" בשרון כביש עוקף קיסריה, גן שמואל',
+      location: 'גן האירועים "YARA" בשרון, כביש עוקף קיסריה, גן שמואל',
       times: 'קבלה: 19:30 חופה וקידושין: 20:30',
       footer: 'אנא אשרו הגעה',
     };
@@ -54,7 +54,7 @@ export class AppComponent {
       this.invitationText.names = 'אפי ואפרת';
       this.invitationText.title = 'מתחתנים';
       this.invitationText.date = 'חמישי, 06 ביולי 2023';
-      this.invitationText.location = 'גן האירועים "YARA" בשרון כביש עוקף קיסריה, גן שמואל';
+      this.invitationText.location = 'גן האירועים "YARA" בשרון, כביש עוקף קיסריה, גן שמואל';
       this.invitationText.times = 'קבלה: 19:30 חופה וקידושין: 20:30';
       this.invitationText.footer = 'אנא אשרו הגעה';
       this.formText = {

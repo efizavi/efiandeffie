@@ -1,0 +1,159 @@
+  /* Language Selector Styles */
+.language-selector {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 16px;
+  }
+  
+  .language-selector select {
+    padding: 4px 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  .language-selector select:focus {
+    border-color: rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Invitation Styles */
+  .invitation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .invitation img {
+    max-width: 30%;
+    max-height: 40vh;
+    object-fit: cover;
+  }
+
+  /* Invitation Text Styles */
+  .invitation-text {
+    text-align: center;
+    font-family: 'Dancing Script' cursive, 'Rubik', 'Amatic SC'; 
+    font-size: 28px;
+    line-height: 0.5;
+    margin-bottom: 50px;
+  }
+
+  .invitation-text.rtl {
+    direction: rtl;
+    font-size:32
+  }
+
+  /*
+     Optional replacement fonts:
+     
+        Great Vibes
+        Google Fonts link: https://fonts.google.com/specimen/Great+Vibes
+
+        Alex Brush
+        Google Fonts link: https://fonts.google.com/specimen/Alex+Brush
+
+        Parisienne
+        Google Fonts link: https://fonts.google.com/specimen/Parisienne
+
+        Allura
+        Google Fonts link: https://fonts.google.com/specimen/Allura
+
+        Sacramento
+        Google Fonts link: https://fonts.google.com/specimen/Sacramento
+
+    link href="https://fonts.googleapis.com/css2?family=FONT_NAME&display=swap" rel="stylesheet">
+  */
+  
+  .invitation-text .names {
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .invitation-text .wedding-date {
+    font-size: 42px;
+    font-weight: bold;
+  }
+
+  .invitation-text .wedding-times {
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  /* Form Styles */
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 400px;
+    margin: 30px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .form.rtl {
+    direction: rtl;
+  }
+
+  .form .form-group {
+    display: flex;
+    justify-content: space-between; 
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .form.rtl .form-group {
+    flex-direction: row-reverse; /* Add this line */
+  }
+  
+  .form label {
+    font-weight: 500;
+    width: 150px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
+
+  .form.rtl .form-group label {
+    order: 2;
+    margin-left: 10px;
+  }
+  
+  .form input {
+    flex-grow: 1;
+    padding: 8px 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  .form input:focus {
+    border-color: rgba(0, 0, 0, 0.3);
+  }
+  
+  .form button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #6200ee;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  
+  .form button:hover {
+    background-color: #3700b3;
+  }
+  

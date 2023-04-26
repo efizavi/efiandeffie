@@ -1,0 +1,34 @@
+<div class="language-selector">
+  <select id="language" [(ngModel)]="selectedLanguage" (change)="changeLanguage()">
+    <option value="he-IL">עברית (ישראל)</option>
+    <option value="en-US">English (US)</option>
+  </select>
+</div>
+
+<div class="invitation">
+  <img src="assets\logo.png" alt="Wedding Invitation" />
+</div>
+
+<div class="invitation-text" [ngClass]="{ 'rtl': isRTL }" [style.fontFamily]="fontFamily">
+  <p class="names">{{ invitationText.names }}</p>
+  <p class="wedding-title">{{ invitationText.title }}</p>
+  <p class="wedding-date">{{ invitationText.date }}</p>
+  <p class="wedding-location">{{ invitationText.location }}</p>
+  <p class="wedding-times">{{ invitationText.times }}</p>
+  <p class="wedding-footer">{{ invitationText.footer }}</p>
+</div>
+
+<div class="form" [ngClass]="{ 'rtl': isRTL }">
+  <div class="form-group">
+    <label for="name">{{ formText.nameLabel }}</label>
+    <input type="text" id="name" [(ngModel)]="name" maxlength="40" [placeholder]="formText.namePlaceholder"/>
+  </div>
+
+  <div class="form-group">
+    <label for="guests">{{ formText.guestsLabel }}</label>
+    <input type="number" id="guests" [(ngModel)]="guests" min="1" max="19" [placeholder]="formText.guestsPlaceholder" />
+  </div>
+
+  <button (click)="sendConfirmation()">{{ formText.sendButton }}</button>
+</div>
+

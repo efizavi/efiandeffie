@@ -14,6 +14,8 @@ export class AppComponent {
   formText: any;
   name: string = '';
   guests: number = 1;
+  response: string;
+  responseOptions: any;
   fontFamily: string;
 
   constructor(private http: HttpClient) {
@@ -35,6 +37,12 @@ export class AppComponent {
       guestsPlaceholder: 'הכניסו מספר אורחים',
       sendButton: 'שלח אישור'
     };
+    this.response = 'coming';
+    this.responseOptions = [
+      { value: 'coming', text: 'Coming', textHe: 'מגיעים' },
+      { value: 'notComing', text: 'Not Coming', textHe: 'לא מגיעים' },
+      { value: 'unsure', text: 'Unsure', textHe: 'לא בטוחים' } 
+    ];
   }
 
   changeLanguage() {
@@ -59,6 +67,7 @@ export class AppComponent {
     } else {
       this.isRTL = false;
       this.fontFamily = 'Dancing Script';
+      // this.fontFamily = 'Great Vibes';
       this.invitationText.names = 'Efi & Effie';
       this.invitationText.title = 'are getting married',
       this.invitationText.date = 'Thursday, 06 July 2023',
@@ -67,7 +76,7 @@ export class AppComponent {
       this.invitationText.footer = 'Let us know if you\'re coming';
       this.formText = {
         nameLabel: 'Name:',
-        guestsLabel: 'Number of Guests:',
+        guestsLabel: 'No. of Guests:',
         namePlaceholder: 'Enter your name',
         guestsPlaceholder: 'Enter the number of guests',
         sendButton: 'Send Confirmation'

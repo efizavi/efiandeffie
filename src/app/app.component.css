@@ -28,23 +28,20 @@
   }
   
   .invitation img {
-    max-width: 30%;
-    max-height: 40vh;
+    max-width: 50%;
     object-fit: cover;
   }
 
   /* Invitation Text Styles */
   .invitation-text {
     text-align: center;
-    font-family: 'Dancing Script' cursive, 'Rubik', 'Amatic SC'; 
+    font-family: 'Dancing Script' cursive, 'Great Vibes', 'Rubik', 'Amatic SC'; 
     font-size: 28px;
-    line-height: 0.5;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
   }
 
   .invitation-text.rtl {
     direction: rtl;
-    font-size:32
   }
 
   /*
@@ -69,7 +66,7 @@
   */
   
   .invitation-text .names {
-    font-size: 42px;
+    font-size: 36px;
     font-weight: bold;
     margin-bottom: 20px;
   }
@@ -77,6 +74,10 @@
   .invitation-text .wedding-date {
     font-size: 42px;
     font-weight: bold;
+  }
+
+  .invitation-text .wedding-location {
+    line-height: 1;
   }
 
   .invitation-text .wedding-times {
@@ -115,7 +116,7 @@
   
   .form label {
     font-weight: 500;
-    width: 150px;
+    width: 110px;
     margin-top: 15px;
     margin-bottom: 5px;
   }
@@ -136,6 +137,10 @@
   
   .form input:focus {
     border-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .form select {
+    flex-grow: 1;
   }
   
   .form button {

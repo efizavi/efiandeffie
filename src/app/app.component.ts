@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -84,14 +85,11 @@ export class AppComponent {
     }
   }
 
+  sendEmail(emailData: any): Observable<any> {
+    return this.http.post('/.netlify/functions/send-email', emailData);
+  }
+
   sendConfirmation(): void {
-
-    const sgMail = require('@sendgrid/mail');
-    // TODO Efi: Fix this
-    //const apiKey = environment.SENDGRID_API_KEY;
-    //sgMail.setApiKey(apiKey);
-    //console.log('API KEY:' +apiKey);
-
     if (!this.name) {
       alert('Please enter a name');
       return;
@@ -103,14 +101,20 @@ export class AppComponent {
       subject: 'RSVP '+this.name+ ': ' +this.response+ ' - '+this.guests+' people',
     }
 
-    sgMail
-      .send(msg)
-      .then(() => {
-        alert('Confirmation sent successfully!');
-        // TODO Efi: Disable send button
-      })
-      .catch((error: any) => {
-        alert('Error sending confirmation. Please try again. '+error);
-      })
+    const emailData = {
+      to: 'efiandeffie@gmail.com',
+      from: 'efiandeffie@gmail.com',
+      subject: 'RSVP '+this.name+ ': ' +this.response+ ' - '+this.guests+' people'
+    };
+    
+    this.sendEmail(emailData).subscribe(
+      (response) => {
+        console.log('Email sent:', response);
+        // TODO Efi: SHOW ALERT, DISABLE BUTTON
+      },
+      (error) => {
+        console.error('Error sending email:', error);
+        // TODO Efi: SHOW ALERT, ENABLE BUTTON
+      });
   }
 }

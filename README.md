@@ -1,8 +1,8 @@
-# Efi & Effie
+# Efi & Effie ♥
 
-A website for my wedding!
-Visit: https://efiandeffie.com 
+A website for my wedding!<br />
+Visit: https://efiandeffie.com<br /><br />
 
-Built on Node+Angular
-Deployed & Hosted via Netlify
-Sends confirmation emails via SendGrid API
+Built on Node+Angular<br />
+Deployed & Hosted via Netlify<br />
+Sends confirmation emails via SendGrid API<br /><br />

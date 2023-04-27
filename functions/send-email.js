@@ -15,9 +15,7 @@ exports.handler = async (event, context) => {
   const email = {
     to: data.to,
     from: data.from,
-    subject: data.subject,
-    text: data.text,
-    html: data.html,
+    subject: data.subject
   };
 
   try {
@@ -29,7 +27,7 @@ exports.handler = async (event, context) => {
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ message: 'API KEY: '+process.env.SENDGRID_API_KEY }),
+      body: JSON.stringify({ message: error.message}),
     };
   }
 };

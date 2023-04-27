@@ -85,23 +85,32 @@ export class AppComponent {
   }
 
   sendConfirmation(): void {
+
+    const sgMail = require('@sendgrid/mail');
+    // TODO Efi: Fix this
+    //const apiKey = environment.SENDGRID_API_KEY;
+    //sgMail.setApiKey(apiKey);
+    //console.log('API KEY:' +apiKey);
+
     if (!this.name) {
       alert('Please enter a name');
       return;
     }
 
-    const data = {
-      name: this.name,
-      guests: this.guests
-    };
+    const msg = {
+      to: 'efiandeffie@gmail.com',
+      from: 'efiandeffie@gmail.com',
+      subject: 'RSVP '+this.name+ ': ' +this.response+ ' - '+this.guests+' people',
+    }
 
-    this.http.post('https://your-backend-api.com/confirmations', data).subscribe(
-      (response) => {
+    sgMail
+      .send(msg)
+      .then(() => {
         alert('Confirmation sent successfully!');
-      },
-      (error) => {
-        alert('Error sending confirmation. Please try again.');
-      }
-    );
+        // TODO Efi: Disable send button
+      })
+      .catch((error: any) => {
+        alert('Error sending confirmation. Please try again. '+error);
+      })
   }
 }

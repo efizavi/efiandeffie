@@ -27,6 +27,7 @@ exports.handler = async (event, context) => {
       body: JSON.stringify({ message: 'Email sent' }),
     };
   } catch (error) {
+    console.log('API KEY: '+process.env.SENDGRID_API_KEY);
     return {
       statusCode: 500,
       body: JSON.stringify({ message: error.message }),

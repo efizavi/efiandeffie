@@ -74,7 +74,7 @@ export class AppComponent {
       this.invitationText.names = 'Efi & Effie';
       this.invitationText.title = 'are getting married',
       this.invitationText.date = 'Thursday, 06 July 2023',
-      this.invitationText.location = 'YARA Garden, HaSharon Caesarea bypass road, Gan Shmuel';
+      this.invitationText.location = 'YARA Garden, HaSharon, Caesarea bypass road, Gan Shmuel';
       this.invitationText.times = 'Reception: 19:30 Ceremony: 20:30';
       this.invitationText.footer = 'Let us know if you\'re coming';
       this.formText = {

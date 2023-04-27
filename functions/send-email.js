@@ -21,6 +21,7 @@ exports.handler = async (event, context) => {
   };
 
   try {
+    console.log('API KEY: '+process.env.SENDGRID_API_KEY);
     await sgMail.send(email);
     return {
       statusCode: 200,

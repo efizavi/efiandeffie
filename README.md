@@ -1,4 +1,4 @@
-# EfiAndEffie
+# Efi & Effie
 
 A website for my wedding!
 Visit: https://efiandeffie.com 

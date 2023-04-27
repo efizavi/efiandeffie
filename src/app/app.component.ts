@@ -18,6 +18,7 @@ export class AppComponent {
   response: string;
   responseOptions: any;
   fontFamily: string;
+  buttonDisabled: boolean;
 
   constructor(private http: HttpClient) {
     this.selectedLanguage = 'he-IL';
@@ -44,6 +45,7 @@ export class AppComponent {
       { value: 'notComing', text: 'Not Coming', textHe: 'לא מגיעים' },
       { value: 'unsure', text: 'Unsure', textHe: 'לא בטוחים' } 
     ];
+    this.buttonDisabled = false;
   }
 
   changeLanguage() {
@@ -90,8 +92,11 @@ export class AppComponent {
   }
 
   sendConfirmation(): void {
+    this.buttonDisabled = true;
+
     if (!this.name) {
       alert('Please enter a name');
+      this.buttonDisabled = false;
       return;
     }
 
@@ -109,12 +114,13 @@ export class AppComponent {
     
     this.sendEmail(emailData).subscribe(
       (response) => {
+        alert("Your response was sent! Thank you ♥")
         console.log('Email sent:', response);
-        // TODO Efi: SHOW ALERT, DISABLE BUTTON
       },
       (error) => {
+        this.buttonDisabled = false;
+        alert("An error has occurred :( --- Please tell Efi!")
         console.error('Error sending email:', error);
-        // TODO Efi: SHOW ALERT, ENABLE BUTTON
       });
   }
 }

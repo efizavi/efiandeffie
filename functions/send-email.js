@@ -15,7 +15,9 @@ exports.handler = async (event, context) => {
   const email = {
     to: data.to,
     from: data.from,
-    subject: data.subject
+    subject: data.subject,
+    text: 'RSVP Received',
+    html: '<strong>RSVP Received</strong>',
   };
 
   try {
@@ -27,7 +29,7 @@ exports.handler = async (event, context) => {
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ message: error.message}),
+      body: JSON.stringify({ message: error.message }),
     };
   }
 };

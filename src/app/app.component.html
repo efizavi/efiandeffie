@@ -38,10 +38,10 @@
     </select>
   </div>
   
-  <button (click)="sendConfirmation()">{{ formText.sendButton }}</button>
+  <button [disabled]="buttonDisabled" (click)="sendConfirmation()">{{ formText.sendButton }}</button>
 </div>
 
-<div class="invitation">
+<div class="doggo">
   <img src="assets\doggo.png" alt="Wedding Invitation" />
 </div>
 

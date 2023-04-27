@@ -28,7 +28,7 @@
   }
   
   .invitation img {
-    max-width: 50%;
+    max-width: 40%;
     object-fit: cover;
   }
 
@@ -115,7 +115,7 @@
   }
   
   .form.rtl .form-group {
-    flex-direction: row-reverse; /* Add this line */
+    flex-direction: row-reverse;
   }
   
   .form label {
@@ -160,9 +160,27 @@
     cursor: pointer;
     transition: background-color 0.3s;
   }
+
+  .form button:disabled {
+    background-color: #cccccc;
+    color: #999999;
+    cursor: not-allowed;
+  }
   
-  
-  .form button:hover {
+  .form button:hover:not(:disabled) {
     background-color: #3700b3;
+  }
+
+  .doggo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .doggo img {
+    max-width: 75%;
+    object-fit: cover;
   }
   

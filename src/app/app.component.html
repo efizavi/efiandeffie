@@ -26,7 +26,7 @@
 
   <div class="form-group">
     <label for="guests">{{ formText.guestsLabel }}</label>
-    <input type="number" id="guests" [(ngModel)]="guests" min="1" max="19" [placeholder]="formText.guestsPlaceholder" />
+    <input type="number" id="guests" [(ngModel)]="guests" min="0" max="19" maxlength="2" required [placeholder]="formText.guestsPlaceholder" />
   </div>
 
   <div class="form-group">

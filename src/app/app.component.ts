@@ -100,7 +100,7 @@ export class AppComponent {
       return;
     }
 
-    if (!(this.guests < 20 && this.guests > 0) || !Number.isInteger(this.guests))
+    if (!(this.guests < 20 && this.guests >= 0) || !Number.isInteger(this.guests))
     {
       alert('The number of guests is invalid');
       this.buttonDisabled = false;

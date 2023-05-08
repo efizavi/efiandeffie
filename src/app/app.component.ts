@@ -91,7 +91,11 @@ export class AppComponent {
     return this.http.post('/.netlify/functions/send-email', emailData);
   }
 
-  sendConfirmation(): void {
+  writeToFirestore(dbData: any): Observable<any> {
+    return this.http.post('/.netlify/functions/create-firestore-entry', dbData);
+  }
+
+  async sendConfirmation() {
     this.buttonDisabled = true;
 
     if (!this.name) {
@@ -107,27 +111,44 @@ export class AppComponent {
       return;
     }
 
-    const msg = {
-      to: 'efiandeffie@gmail.com',
-      from: 'efiandeffie@gmail.com',
-      subject: 'RSVP '+this.name+ ': ' +this.response+ ' - '+this.guests+' people',
-    }
-
     const emailData = {
       to: 'efiandeffie@gmail.com',
       from: 'efiandeffie@gmail.com',
       subject: 'RSVP '+this.name+ ': ' +this.response+ ' - '+this.guests+' people'
     };
+
+    const dbData = {
+      name: this.name,
+      guests: this.guests,
+      response: this.response,
+    };
+
+    try {
+      const results = await Promise.allSettled([
+        this.sendEmail(emailData).toPromise(),
+        this.writeToFirestore(dbData).toPromise(),
+      ]);
+
+      results.forEach((result, index) => {
+        if (result.status === 'fulfilled') {
+          console.log(`Function ${index + 1} succeeded with value:`, result.value);
+        } else {
+          console.log(`Function ${index + 1} failed with reason:`, result.reason);
+        }
+      });
     
-    this.sendEmail(emailData).subscribe(
-      (response) => {
-        alert("Your response was sent! Thank you ♥")
-        console.log('Email sent:', response);
-      },
-      (error) => {
+      const allFailed = results.every(result => result.status == 'rejected');
+
+      if (allFailed) {
         this.buttonDisabled = false;
         alert("An error has occurred :( --- Please tell Efi!")
-        console.error('Error sending email:', error);
-      });
+      }
+      else {
+        alert("Your response was sent! Thank you ♥")
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      this.buttonDisabled = false;
+    }
   }
 }

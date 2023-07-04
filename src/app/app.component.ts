@@ -19,6 +19,8 @@ export class AppComponent {
   responseOptions: any;
   fontFamily: string;
   buttonDisabled: boolean;
+  votingExpired: boolean = true;
+  thankYouText: string;
 
   constructor(private http: HttpClient) {
     this.selectedLanguage = 'he-IL';
@@ -46,6 +48,7 @@ export class AppComponent {
       { value: 'unsure', text: 'Unsure', textHe: 'לא בטוחים' } 
     ];
     this.buttonDisabled = false;
+    this.thankYouText = 'מתרגשים? גם אנחנו! לחצו לניווט:'
   }
 
   changeLanguage() {
@@ -77,6 +80,7 @@ export class AppComponent {
       this.invitationText.location = 'YARA Garden, HaSharon, Caesarea bypass road, Gan Shmuel';
       this.invitationText.times = 'Reception: 19:30 Ceremony: 20:30';
       this.invitationText.footer = 'Let us know if you\'re coming';
+      this.thankYouText = 'Excited? Us too! Press to navigate:'
       this.formText = {
         nameLabel: 'Name:',
         guestsLabel: 'No. of Guests:',

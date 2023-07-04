@@ -171,6 +171,10 @@
     background-color: #3700b3;
   }
 
+  .img-waze {
+    width: 100px;
+  }
+
   .doggo {
     display: flex;
     justify-content: center;

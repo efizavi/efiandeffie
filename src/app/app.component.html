@@ -9,16 +9,23 @@
   <img src="assets\logo.png" alt="Wedding Invitation" />
 </div>
 
+<div class="invitation-text" [ngClass]="{ 'rtl': isRTL }" [style.fontFamily]="fontFamily" *ngIf="votingExpired">
+  <p>{{ thankYouText }}</p>
+  <a href="https://waze.to/li/hsvbbe423m">
+    <img class="img-waze" src="https://irp-cdn.multiscreensite.com/7dffcfc0/dms3rep/multi/5467890-09876543.png">
+  </a>
+</div>
+
 <div class="invitation-text" [ngClass]="{ 'rtl': isRTL }" [style.fontFamily]="fontFamily">
   <p class="names">{{ invitationText.names }}</p>
   <p class="wedding-title">{{ invitationText.title }}</p>
   <p class="wedding-date">{{ invitationText.date }}</p>
   <p class="wedding-location">{{ invitationText.location }}</p>
   <p class="wedding-times">{{ invitationText.times }}</p>
-  <p class="wedding-footer">{{ invitationText.footer }}</p>
+  <p class="wedding-footer" *ngIf="!votingExpired">{{ invitationText.footer }}</p>
 </div>
 
-<div class="form" [ngClass]="{ 'rtl': isRTL }">
+<div class="form" [ngClass]="{ 'rtl': isRTL }" *ngIf="!votingExpired">
   <div class="form-group">
     <label for="name">{{ formText.nameLabel }}</label>
     <input type="text" id="name" [(ngModel)]="name" maxlength="40" [placeholder]="formText.namePlaceholder"/>

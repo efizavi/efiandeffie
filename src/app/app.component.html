@@ -9,14 +9,17 @@
   <img src="assets\logo.png" alt="Wedding Invitation" />
 </div>
 
-<div class="invitation-text" [ngClass]="{ 'rtl': isRTL }" [style.fontFamily]="fontFamily" *ngIf="votingExpired">
+<div class="invitation-text" [ngClass]="{ 'rtl': isRTL }" [style.fontFamily]="fontFamily" *ngIf="votingExpired && !eventPassed">
   <p>{{ thankYouText }}</p>
   <a href="https://ul.waze.com/ul?preview_venue_id=22872388.228986029.5397&navigate=yes">
     <img class="img-waze" src="https://irp-cdn.multiscreensite.com/7dffcfc0/dms3rep/multi/5467890-09876543.png">
   </a>
 </div>
+<div class="invitation" *ngIf="eventPassed">
+  <img [src]="thankYouImgSrc" alt="Thank You!"/>
+</div>
 
-<div class="invitation-text" [ngClass]="{ 'rtl': isRTL }" [style.fontFamily]="fontFamily">
+<div class="invitation-text" [ngClass]="{ 'rtl': isRTL }" [style.fontFamily]="fontFamily" *ngIf="!eventPassed">
   <p class="names">{{ invitationText.names }}</p>
   <p class="wedding-title">{{ invitationText.title }}</p>
   <p class="wedding-date">{{ invitationText.date }}</p>
@@ -25,7 +28,7 @@
   <p class="wedding-footer" *ngIf="!votingExpired">{{ invitationText.footer }}</p>
 </div>
 
-<div class="form" [ngClass]="{ 'rtl': isRTL }" *ngIf="!votingExpired">
+<div class="form" [ngClass]="{ 'rtl': isRTL }" *ngIf="!votingExpired && !eventPassed">
   <div class="form-group">
     <label for="name">{{ formText.nameLabel }}</label>
     <input type="text" id="name" [(ngModel)]="name" maxlength="40" [placeholder]="formText.namePlaceholder"/>
@@ -48,7 +51,7 @@
   <button [disabled]="buttonDisabled" (click)="sendConfirmation()">{{ formText.sendButton }}</button>
 </div>
 
-<div class="doggo">
+<div class="doggo" *ngIf="!eventPassed">
   <img src="assets\doggo.png" alt="Wedding Invitation" />
 </div>
 

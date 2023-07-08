@@ -21,6 +21,8 @@ export class AppComponent {
   buttonDisabled: boolean;
   votingExpired: boolean = true;
   thankYouText: string;
+  eventPassed: boolean = true;
+  thankYouImgSrc: string;
 
   constructor(private http: HttpClient) {
     this.selectedLanguage = 'he-IL';
@@ -49,6 +51,7 @@ export class AppComponent {
     ];
     this.buttonDisabled = false;
     this.thankYouText = 'מתרגשים? גם אנחנו! לחצו לניווט:'
+    this.thankYouImgSrc = 'assets\\thank-you-he.jpeg';
   }
 
   changeLanguage() {
@@ -70,6 +73,7 @@ export class AppComponent {
         guestsPlaceholder: 'הכניסו מספר האורחים',
         sendButton: 'שלח אישור'
       };
+      this.thankYouImgSrc = 'assets\\thank-you-he.jpeg';
     } else {
       this.isRTL = false;
       this.fontFamily = 'Dancing Script';
@@ -88,6 +92,7 @@ export class AppComponent {
         guestsPlaceholder: 'Enter the number of guests',
         sendButton: 'Send Confirmation'
       };
+      this.thankYouImgSrc = 'assets\\thank-you-en.jpeg';
     }
   }
 
